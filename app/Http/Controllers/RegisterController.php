@@ -11,6 +11,11 @@ class RegisterController extends Controller
     }
 
     public function store(Request $request){
-        dd($request);
+        //dd($request);
+        //validando
+        $this-> validate($request, [
+            'name' => 'required|min:5',
+
+        ]);
     }
 }
