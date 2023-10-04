@@ -20,9 +20,10 @@
                     </label>
                     <input type="text"
                         name="name" placeholder="Nombre"
-                        class="border p-3 w-full rounded-lg "
+                        class="border p-3 w-full rounded-lg @error('name') border-red-500 @enderror"
                         id='name'
-                    >
+                        value="{{ old('name') }}"
+                        >
                     @error('name')
                         <p class="bg-red-500 text-white my-2 rounded-lg
                         text-sm p-2 text-center"> {{ $message }} </p>
@@ -36,29 +37,43 @@
                             </label>
                             <input type="text"
                                 name="username" placeholder="Tu Nombre de usuario"
-                                class="border p-3 w-full rounded-lg "
+                                class="border p-3 w-full rounded-lg @error('username') border-red-500 @enderror"
                                 id="username"
+                                value="{{ old('name') }}"
                             >
+                            @error('username')
+                            <p class="bg-red-500 text-white my-2 rounded-lg
+                            text-sm p-2 text-center"> {{ $message }} </p>
+                        @enderror
                         </div>
                         <div class="mb-5">
                             <label  for='email' class="mb-2 block uppercase text-gray-500 font-bold">
                                 email:
                             </label>
                             <input type="email"
-                                name="username" placeholder="Tu email"
-                                class="border p-3 w-full rounded-lg "
+                                name="email" placeholder="Tu email"
+                                class="border p-3 w-full rounded-lg @error('email') border-red-500 @enderror"
                                 id="email"
+                                value="{{ old('name') }}"
                             >
+                            @error('email')
+                            <p class="bg-red-500 text-white my-2 rounded-lg
+                            text-sm p-2 text-center"> {{ $message }} </p>
+                        @enderror
                         </div>
                         <div class="mb-5">
                             <label  for='password' class="mb-2 block uppercase text-gray-500 font-bold">
                                 Password:
                             </label>
                             <input type="password"
-                                name="username" placeholder="Tu contraseña"
-                                class="border p-3 w-full rounded-lg "
+                                name="password" placeholder="Tu contraseña"
+                                class="border p-3 w-full rounded-lg @error('password') border-red-500 @enderror"
                                 id="password"
                             >
+                            @error('password')
+                            <p class="bg-red-500 text-white my-2 rounded-lg
+                            text-sm p-2 text-center"> {{ $message }} </p>
+                        @enderror
                         </div>
                         <div class="mb-5">
                             <label  for='password_confirmation' class="mb-2 block uppercase text-gray-500 font-bold">
@@ -69,6 +84,7 @@
                                 class="border p-3 w-full rounded-lg "
                                 id="password_confirmation"
                             >
+
                         </div>
 
                         <input type="submit" value="Crear Cuenta" class="bg-sky-600 hover:700 transition-colors cursor-pointer

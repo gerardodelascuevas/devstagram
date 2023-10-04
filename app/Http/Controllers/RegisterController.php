@@ -14,8 +14,11 @@ class RegisterController extends Controller
         //dd($request);
         //validando
         $this-> validate($request, [
-            'name' => 'required|min:5',
-
+            'name' => 'required|max:30',
+            'username'=> 'required|unique:users|min:3|max:20',
+            'email'=> 'required|unique:table,column,except,id',
+            'password'=> 'required|confirmed|min:8',
         ]);
+        dd('Creando Usuario');
     }
 }
