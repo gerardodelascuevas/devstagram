@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @stack('styles')
     <title>Devstagram - @yield('titulo') </title>
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 </head>
 <body>
     <div class="container mx-auto flex justify-between items-center">
@@ -21,7 +23,7 @@
              </svg>
              Crear
             </a>
-            <a  class='font-bold uppercase text-gray-600 text-sm' href='#'>
+            <a  class='font-bold uppercase text-gray-600 text-sm' href='{{ route('post.index', auth()-> user()-> username)}}'>
                 Hola <span> {{ $user-> username }}</span>
             </a>
             <form method="POST" action="{{route('logout')}}">
@@ -40,11 +42,11 @@
     </div>
 
     <main class="container mx-auto mt-10">
-        <h2 class='font-black text-center text-3xl mb-10'> @yield('titulo')</h2>
-    </main>
-    <div>
+        <h2 class="font-black text-center  text-3xl mb-10">
+            @yield('titulo')
+        </h2>
         @yield('contenido')
-    </div>
+    </main>
 
     <footer class="mt-10 text-center p-5 text-gray-500 font-bold uppercase">
         DevStagram - Todos los derechos reservados
