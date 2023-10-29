@@ -24,7 +24,7 @@
              Crear
             </a>
             <a  class='font-bold uppercase text-gray-600 text-sm' href='{{ route('post.index', auth()-> user()-> username)}}'>
-                Hola <span> {{ $user-> username }}</span>
+                Hola <span> {{ auth()->user()-> username }}</span>
             </a>
             <form method="POST" action="{{route('logout')}}">
                 @csrf
