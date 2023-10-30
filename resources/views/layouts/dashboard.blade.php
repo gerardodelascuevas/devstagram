@@ -29,4 +29,15 @@ Perfil {{$user-> username}}
             </div>
         </div>
     </div>
+
+    <section class="container mx-auto mt-10">
+        <h2 class="text-4xl text-center font-black my-10"> Publicaciones </h2>
+        @foreach ($posts as $post)
+            <div>
+                <a>
+                    <img src="{{ asset('uploads').'/'.$post-> imagen}}" alt="Imagen del post{{$post->titulo}}" />
+                </a>
+            </div>
+        @endforeach
+    </section>
 @endsection
