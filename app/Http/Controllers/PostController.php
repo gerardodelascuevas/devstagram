@@ -18,7 +18,7 @@ class PostController extends Controller
     public function index(User $user)
         {
             //FORMA CON WHERE
-            $posts = Post::where('user_id', $user->id)->get();
+            $posts = Post::where('user_id', $user->id)->paginate(10);
 
             return view('layouts.dashboard', [
                 'user' => $user,
@@ -70,7 +70,15 @@ class PostController extends Controller
             unlink($imagen_path);
         }
 
-        return redirect()->route('post.index', auth()->user()->username);
+        return redirect()->route('posts.index', auth()->user()->username);
+    }
+
+    public function show(User $user, Post $post )
+    {
+        return view('posts.posts', [
+            'post'=> $post,
+            'user'=> $user
+        ]);
     }
 
 }
