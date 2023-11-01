@@ -60,6 +60,7 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
+
         $this->authorize('delete', $post);
         $post->delete();
 
@@ -70,7 +71,7 @@ class PostController extends Controller
             unlink($imagen_path);
         }
 
-        return redirect()->route('posts.index', auth()->user()->username);
+        return redirect()->route('post.index', auth()->user()->username);
     }
 
     public function show(User $user, Post $post )
